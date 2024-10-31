@@ -1,8 +1,8 @@
 "use client";
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ModeToggle } from '@/components/mode-toggle';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/mode-toggle";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,8 +10,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
-import { ListChecks } from 'lucide-react';
+} from "@/components/ui/navigation-menu";
+import { ListChecks } from "lucide-react";
 
 export default function Header() {
   return (
@@ -20,10 +20,10 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <ListChecks className="h-6 w-6" />
-            <span className="font-bold text-xl">Top 10 Everything</span>
+            <span className="font-bold text-xl">Top Alpha</span>
           </Link>
 
-          <NavigationMenu>
+          {/* <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
@@ -36,7 +36,9 @@ export default function Header() {
                             href={category.href}
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">{category.title}</div>
+                            <div className="text-sm font-medium leading-none">
+                              {category.title}
+                            </div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                               {category.description}
                             </p>
@@ -55,13 +57,15 @@ export default function Header() {
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
-          </NavigationMenu>
+          </NavigationMenu> */}
 
           <div className="flex items-center space-x-4">
             <ModeToggle />
-            <Button variant="default" size="sm">
-              Subscribe
-            </Button>
+            <Link href="https://www.linkedin.com/in/muhammad-faahem/">
+              <Button variant="default" size="sm">
+                Contact Me
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
