@@ -6,6 +6,7 @@ import { ChevronRight, TrendingUp, Award, Clock } from "lucide-react";
 import FeaturedPost from "@/components/featured-post";
 import CategoryGrid from "@/components/category-grid";
 import blogs from "@/static/blogs.json";
+import ideas from "@/static/ideas.json";
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -74,6 +75,45 @@ export default function Home() {
                   </Badge>
                   <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                     {blog.title}
+                  </h3>
+                </div>
+              </Link>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Business Ideas */}
+      <section>
+        <div className="flex items-center justify-between my-6">
+          <h2 className="text-2xl font-bold text-blue-800">Business Ideas</h2>
+          {/* <Button variant="ghost" asChild>
+            <Link href="/posts">
+              View All
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button> */}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ideas.map((idea, index) => (
+            <Card
+              key={index}
+              className="group hover:shadow-lg transition-shadow"
+            >
+              <Link href={`/${idea.slug}`}>
+                <div className="aspect-video relative overflow-hidden rounded-t-lg">
+                  <img
+                    src={idea.image}
+                    alt={`Business Idea ${index}`}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <Badge className="mb-2" variant="secondary">
+                    {idea.category}
+                  </Badge>
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    {idea.title}
                   </h3>
                 </div>
               </Link>

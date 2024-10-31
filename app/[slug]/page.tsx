@@ -2,17 +2,22 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Clock, ThumbsUp } from "lucide-react";
 import blogs from "@/static/blogs.json";
+import ideas from "@/static/ideas.json";
 import { Metadata } from "next";
 
 async function getPost(slug: string) {
-  return blogs.find((blog) => blog.slug === slug);
+  return (
+    blogs.find((blog) => blog.slug === slug) ||
+    ideas.find((idea) => idea.slug === slug)
+  );
 }
 
 // Generate static params for all possible slugs
 export async function generateStaticParams() {
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
+  return [
+    ...blogs.map((blog) => ({ slug: blog.slug })),
+    ...ideas.map((idea) => ({ slug: idea.slug })),
+  ];
 }
 
 // Generate metadata for each post
@@ -38,6 +43,9 @@ export async function generateMetadata({
       "top 10",
       "rankings",
       "best",
+      "ideas",
+      "business",
+      ...post.keywords,
       ...post.title.toLowerCase().split(" "),
     ],
     openGraph: {

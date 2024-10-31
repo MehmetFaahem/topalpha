@@ -61,7 +61,7 @@ export default function Header() {
 
           <div className="flex items-center space-x-4">
             <ModeToggle />
-            <Link href="https://www.linkedin.com/in/muhammad-faahem/">
+            <Link href="tel:+8801721239738">
               <Button variant="default" size="sm">
                 Contact Me
               </Button>
